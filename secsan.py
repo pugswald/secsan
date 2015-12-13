@@ -50,7 +50,7 @@ def main(raw_participants):
         else:
             participants[entry[0]] = entry[1]
     pairings = generate_pairings(participants.keys(), exclusions, 0)
-    print pairings
+    #print pairings
     body = """Dear %s, \n\nYour secret santa this year is %s.\n
 Do not hit reply, as I don't want to know your secret santa.
 If there is a problem with this assignment please email me.\n
@@ -63,7 +63,7 @@ https://github.com/pugswald/secsan"""
     s.login(uname, pwd)
     for (p_from, p_to) in pairings:
         if participants[p_from] != "":
-            print "Send email to "+p_from+" that his secret santa is "+p_to
+            #print "Send email to "+p_from+" that his secret santa is "+p_to
             msg = """\From: %s\nTo: %s\nSubject: Your secret santa\n\n%s
             """ % (uname, participants[p_from], body%(p_from, p_to))
             s.sendmail(uname, participants[p_from], msg)
